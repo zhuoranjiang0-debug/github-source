@@ -1,0 +1,66 @@
+# ---- Godot ----
+.godot/
+*.translation
+# 含签名密钥口令，禁止入库
+export_presets.cfg
+
+# ---- 构建产物 ----
+build/
+dist/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.pck
+*.zip
+
+# 安卓 Gradle 构建模板：200 MB 的脚手架，由「构建安卓包.bat」自动装好，不入库
+app/android/
+
+# 用户自己在编辑器里存下的作品。这是"各人各机"的东西，不是项目源码：
+# 入库会顺带改变别人打开编辑器时的行为（编辑器会优先打开上次的作品），
+# 而且示例是只读的、作品本来就应该放在外面。
+app/projects/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- Node ----
+node_modules/
+
+# ---- 编辑器 / 系统 ----
+# 允许把编码设置提交进仓库，让每个队友的编辑器都自动用 UTF-8；
+# 其余 VSCode 本地配置不入库。
+.vscode/*
+!.vscode/settings.json
+.idea/
+# 快捷方式记录的是本机绝对路径，对别人没用，不入库
+*.lnk
+# Office 打开文档时留下的临时锁文件（"~$xxx.docx"），不是内容
+~$*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 本地配置 / 密钥 ----
+.env
+.env.*
+!.env.example
+secrets/
+*.local.json
+# 签名证书只留本机，避免公开源码时误提交
+*.jks
+*.keystore
+*.p12
+*.pfx
+
+# 原始比赛材料保留本地，不随公开源码分发
+/项目计划书.doc
+
+# ---- 临时 ----
+*.tmp
+*.log
+_scratch/

@@ -1,0 +1,13 @@
+# 统一换行符，避免在不同机器上产生"整文件都变了"的假 diff
+* text=auto eol=lf
+
+# Windows 批处理必须是 CRLF：多行 if 块在 LF 下可能被 cmd 解析错
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 二进制文件不要做任何换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.exe binary
+*.doc binary

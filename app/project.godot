@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="AI2D Game Creator"
+config/description="AI 赋能的移动端 2D 游戏原型创作平台"
+run/main_scene="res://scenes/boot.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+; 手机关/平板的方向。注意 Godot 的枚举：
+;   0 = 横屏   1 = 竖屏   4 = 传感器横屏（可左右翻转）
+; 这里曾经写成 1，那是竖屏 —— 结果在平板上画面被挤成窄窄一条、
+; 左右两条黑边。桌面版和网页版都忽略这个设置，所以一直没暴露。
+window/handheld/orientation=4
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[gui]
+
+; 打包时自带中文字体。
+; 桌面版能显示中文，是因为 Godot 把缺的字交给系统字体去补（Windows 里有中文字体）。
+; 浏览器里没有系统字体可借，不打包的话中文全是乱码。
+theme/custom_font="res://assets/fonts/NotoSansSC-Regular.otf"
+
+[physics]
+
+2d/default_gravity=0.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+; 安卓导出的硬性要求：必须开启 ETC2/ASTC 纹理压缩。
+; 不开就判定为配置无效，而且**不给任何提示** ——
+; Godot 源码里那一处只把校验结果设成 false，没有写原因。
+textures/vram_compression/import_etc2_astc=true

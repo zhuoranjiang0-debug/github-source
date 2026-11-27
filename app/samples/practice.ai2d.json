@@ -1,0 +1,54 @@
+{
+	"schema_version": "1.1",
+	"id": "prj_practice",
+	"name": "练习：我的第一个原型",
+	"config": {
+		"canvas": { "width": 1280, "height": 720 },
+		"gravity": 1600,
+		"background_color": "#101a2b",
+		"start_scene_id": "scn_1"
+	},
+	"assets": [],
+	"entities": [
+		{
+			"id": "ent_block",
+			"name": "方块",
+			"tags": ["player"],
+			"color": "#ff6b6b",
+			"collider": { "shape": "rect", "width": 64, "height": 64 },
+			"physics": { "mode": "kinematic" }
+		},
+		{
+			"id": "ent_floor",
+			"name": "地板",
+			"tags": ["ground"],
+			"color": "#3b4a63",
+			"collider": { "shape": "rect", "width": 1280, "height": 80 },
+			"physics": { "mode": "static" },
+			"collision_group": "ground"
+		}
+	],
+	"scenes": [
+		{
+			"id": "scn_1",
+			"name": "第一关",
+			"instances": [
+				{ "instance_id": "i_floor", "entity_id": "ent_floor", "x": 640, "y": 680 },
+				{ "instance_id": "i_block", "entity_id": "ent_block", "x": 300, "y": 400 }
+			]
+		}
+	],
+	"rules": [
+		{
+			"id": "rule_jump",
+			"name": "点击屏幕跳跃",
+			"trigger": { "type": "tap" },
+			"conditions": [
+				{ "type": "grounded", "target": "tag:player" }
+			],
+			"actions": [
+				{ "type": "jump", "target": "tag:player", "height": 700 }
+			]
+		}
+	]
+}

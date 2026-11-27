@@ -1,0 +1,340 @@
+{
+	"schema_version": "1.1",
+	"id": "prj_demo_jump",
+	"name": "跳跃小恐龙",
+	"created_at": "2026-09-16T10:00:00",
+	"updated_at": "2026-09-16T10:00:00",
+	"config": {
+		"canvas": {
+			"width": 1280,
+			"height": 720
+		},
+		"orientation": "landscape",
+		"gravity": 1600,
+		"background_color": "#0b1220",
+		"start_scene_id": "scn_level1"
+	},
+	"assets": [],
+	"entities": [
+		{
+			"id": "ent_player",
+			"name": "小恐龙",
+			"asset_id": "",
+			"tags": ["player"],
+			"color": "#4ade80",
+			"collider": {
+				"shape": "rect",
+				"width": 56,
+				"height": 64,
+				"radius": 24,
+				"offset_x": 0,
+				"offset_y": 0
+			},
+			"physics": {
+				"mode": "kinematic",
+				"gravity_scale": 1,
+				"bounce": 0,
+				"friction": 0.6
+			},
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {
+				"score": 0,
+				"hp": 3
+			}
+		},
+		{
+			"id": "ent_ground",
+			"name": "地面",
+			"asset_id": "",
+			"tags": ["ground"],
+			"color": "#334155",
+			"collider": {
+				"shape": "rect",
+				"width": 256,
+				"height": 96,
+				"radius": 24,
+				"offset_x": 0,
+				"offset_y": 0
+			},
+			"physics": {
+				"mode": "static",
+				"gravity_scale": 0,
+				"bounce": 0,
+				"friction": 0.6
+			},
+			"collision_group": "ground",
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {}
+		},
+		{
+			"id": "ent_coin",
+			"name": "金币",
+			"asset_id": "",
+			"tags": ["coin"],
+			"color": "#fbbf24",
+			"collider": {
+				"shape": "circle",
+				"width": 48,
+				"height": 48,
+				"radius": 22,
+				"offset_x": 0,
+				"offset_y": 0
+			},
+			"physics": {
+				"mode": "none",
+				"gravity_scale": 0,
+				"bounce": 0,
+				"friction": 0.6
+			},
+			"collision_group": "pickup",
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {}
+		},
+		{
+			"id": "ent_spike",
+			"name": "尖刺",
+			"asset_id": "",
+			"tags": ["hazard"],
+			"color": "#f87171",
+			"collider": {
+				"shape": "rect",
+				"width": 48,
+				"height": 48,
+				"radius": 24,
+				"offset_x": 0,
+				"offset_y": 0
+			},
+			"physics": {
+				"mode": "static",
+				"gravity_scale": 0,
+				"bounce": 0,
+				"friction": 0.6
+			},
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {}
+		},
+		{
+			"id": "btn_left",
+			"name": "左",
+			"asset_id": "",
+			"tags": [],
+			"color": "#64748b",
+			"collider": {"shape": "rect", "width": 140, "height": 140, "radius": 24, "offset_x": 0, "offset_y": 0},
+			"physics": {"mode": "none", "gravity_scale": 0, "bounce": 0, "friction": 0.6},
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {},
+			"button_action": "ui_left"
+		},
+		{
+			"id": "btn_right",
+			"name": "右",
+			"asset_id": "",
+			"tags": [],
+			"color": "#64748b",
+			"collider": {"shape": "rect", "width": 140, "height": 140, "radius": 24, "offset_x": 0, "offset_y": 0},
+			"physics": {"mode": "none", "gravity_scale": 0, "bounce": 0, "friction": 0.6},
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {},
+			"button_action": "ui_right"
+		},
+		{
+			"id": "btn_jump",
+			"name": "跳",
+			"asset_id": "",
+			"tags": [],
+			"color": "#0ea5e9",
+			"collider": {"shape": "circle", "width": 170, "height": 170, "radius": 85, "offset_x": 0, "offset_y": 0},
+			"physics": {"mode": "none", "gravity_scale": 0, "bounce": 0, "friction": 0.6},
+			"animations": {},
+			"default_animation": "",
+			"initial_properties": {},
+			"button_action": "ui_accept"
+		}
+	],
+	"scenes": [
+		{
+			"id": "scn_level1",
+			"name": "第一关",
+			"background_color": "#0b1220",
+			"background_asset_id": "",
+			"camera": {
+				"mode": "fixed",
+				"target": "",
+				"zoom": 1
+			},
+			"tilemap": {
+				"tile_size": 64,
+				"asset_id": "",
+				"grid": []
+			},
+			"instances": [
+				{"instance_id": "i_ground_1", "entity_id": "ent_ground", "x": 128, "y": 672, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_ground_2", "entity_id": "ent_ground", "x": 384, "y": 672, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_ground_3", "entity_id": "ent_ground", "x": 640, "y": 672, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_ground_4", "entity_id": "ent_ground", "x": 896, "y": 672, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_ground_5", "entity_id": "ent_ground", "x": 1152, "y": 672, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_player", "entity_id": "ent_player", "x": 150, "y": 520, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_coin_1", "entity_id": "ent_coin", "x": 330, "y": 520, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_coin_2", "entity_id": "ent_coin", "x": 490, "y": 440, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_coin_3", "entity_id": "ent_coin", "x": 660, "y": 370, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_coin_4", "entity_id": "ent_coin", "x": 860, "y": 440, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_coin_5", "entity_id": "ent_coin", "x": 1040, "y": 520, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_spike_1", "entity_id": "ent_spike", "x": 580, "y": 600, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_spike_2", "entity_id": "ent_spike", "x": 950, "y": 600, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_btn_left", "entity_id": "btn_left", "x": 110, "y": 650, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_btn_right", "entity_id": "btn_right", "x": 280, "y": 650, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}},
+				{"instance_id": "i_btn_jump", "entity_id": "btn_jump", "x": 1170, "y": 645, "rotation": 0, "scale_x": 1, "scale_y": 1, "flip_h": false, "properties": {}}
+			]
+		}
+	],
+	"rules": [
+		{
+			"id": "rule_init",
+			"name": "开局重置分数与血量",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "game_start"},
+			"conditions": [],
+			"actions": [
+				{"type": "set_property", "target": "tag:player", "property": "score", "value": 0},
+				{"type": "set_property", "target": "tag:player", "property": "hp", "value": 3}
+			]
+		},
+		{
+			"id": "rule_jump",
+			"name": "点击屏幕跳跃",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "tap"},
+			"conditions": [
+				{"type": "grounded", "target": "tag:player"}
+			],
+			"actions": [
+				{"type": "jump", "target": "tag:player", "height": 190}
+			]
+		},
+		{
+			"id": "rule_jump_key",
+			"name": "按空格跳跃",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "key_press", "key": "Space"},
+			"conditions": [
+				{"type": "grounded", "target": "tag:player"}
+			],
+			"actions": [
+				{"type": "jump", "target": "tag:player", "height": 190}
+			]
+		},
+		{
+			"id": "rule_jump_button",
+			"name": "按住跳跃键跳起来",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "every_frame"},
+			"conditions": [
+				{"type": "key_held", "key": "ui_accept"},
+				{"type": "grounded", "target": "tag:player"}
+			],
+			"actions": [
+				{"type": "jump", "target": "tag:player", "height": 190}
+			]
+		},
+		{
+			"id": "rule_move_left",
+			"name": "按住左方向键向左移动",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "every_frame"},
+			"conditions": [
+				{"type": "key_held", "key": "ui_left"}
+			],
+			"actions": [
+				{"type": "set_velocity", "target": "tag:player", "vx": -320}
+			]
+		},
+		{
+			"id": "rule_move_right",
+			"name": "按住右方向键向右移动",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "every_frame"},
+			"conditions": [
+				{"type": "key_held", "key": "ui_right"}
+			],
+			"actions": [
+				{"type": "set_velocity", "target": "tag:player", "vx": 320}
+			]
+		},
+		{
+			"id": "rule_move_stop",
+			"name": "松开方向键就停下",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "every_frame"},
+			"conditions": [
+				{"type": "key_held", "key": "ui_left", "negate": true},
+				{"type": "key_held", "key": "ui_right", "negate": true}
+			],
+			"actions": [
+				{"type": "set_velocity", "target": "tag:player", "vx": 0}
+			]
+		},
+		{
+			"id": "rule_coin",
+			"name": "吃到金币加分",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "collision", "a": "tag:player", "b": "tag:coin"},
+			"conditions": [],
+			"actions": [
+				{"type": "change_property", "target": "tag:player", "property": "score", "delta": 1},
+				{"type": "destroy", "target": "other"}
+			]
+		},
+		{
+			"id": "rule_hurt",
+			"name": "碰到尖刺扣血",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "collision", "a": "tag:player", "b": "tag:hazard"},
+			"conditions": [],
+			"actions": [
+				{"type": "change_property", "target": "tag:player", "property": "hp", "delta": -1},
+				{"type": "apply_impulse", "target": "tag:player", "vx": 0, "vy": -450}
+			]
+		},
+		{
+			"id": "rule_win",
+			"name": "集齐金币获胜",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "property_change", "target": "tag:player", "property": "score"},
+			"conditions": [
+				{"type": "compare", "target": "tag:player", "property": "score", "op": ">=", "value": 5}
+			],
+			"actions": [
+				{"type": "end_game", "result": "win", "message": "金币全部收集完成！"}
+			]
+		},
+		{
+			"id": "rule_lose",
+			"name": "血量归零失败",
+			"enabled": true,
+			"scene_id": "",
+			"trigger": {"type": "property_change", "target": "tag:player", "property": "hp"},
+			"conditions": [
+				{"type": "compare", "target": "tag:player", "property": "hp", "op": "<=", "value": 0}
+			],
+			"actions": [
+				{"type": "end_game", "result": "lose", "message": "小恐龙倒下了"}
+			]
+		}
+	]
+}

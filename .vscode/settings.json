@@ -1,0 +1,11 @@
+{
+  // 本项目的所有文本文件都必须是 UTF-8，在这里钉死。
+  //
+  // 为什么需要这一条：在中文 Windows 上，编辑器很容易把没有 BOM 的 UTF-8
+  // 猜成 GBK。一旦猜错又保存，汉字就会被悄悄写坏 —— 而 JSON 结构依然合法、
+  // 程序照跑不误，只有游戏里的文字变了样，极难发现。（2026-09-17 实际踩过）
+  //
+  // autoGuessEncoding 关掉之后，编辑器不再"猜"，一律按上面指定的 utf8 打开。
+  "files.encoding": "utf8",
+  "files.autoGuessEncoding": false
+}
